@@ -5,11 +5,7 @@ import requests
 def main():
     st.title("Cherchez les associations près de chez vous !")
     st.header("Bienvenue !")
-
-    # Zone de saisie du mot clé
     keyword = st.text_input("Entrez le mot clé")
-
-    # Bouton de localisation
     if st.button("Localiser"):
         location = get_location()
         st.write(f"Localisation : {location}")
@@ -21,7 +17,6 @@ def main():
             st.write(f"Adresse: {assoc['adresse_gestion_libelle_voie']}")
             st.write("---")
 
-    # Bouton de recherche
     if st.button("Rechercher"):
         associations = get_associations(keyword)
         st.subheader("Associations :")
